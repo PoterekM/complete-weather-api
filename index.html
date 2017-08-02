@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-   <script type="text/javascript" src="build/js/app.js"></script>
+    <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="build/css/styles.css">
+    <script src="build/js/vendor.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
     <title>Weather</title>
   </head>
   <body>
     <div class="container">
       <h1>Get Weather Conditions From Anywhere!</h1>
-      <label for="location">Enter a location:</label>
-      <input id="location" type="text">
-      <button class="btn-success" id="humidity-location">Get Current Humidity!</button>
-      <button class="btn-primary" id="temp-location">Get Current temp in Kelvin!</button>
-        <button class="btn-danger" id="fah-location">Get Current temp in Fahrenheit!</button>
-      <div class="showWeather"></div>
-      <div class="showKelvin"></div>
-      <div class="showFah"></div>
+      <div class="box">
+        <label for="location">Enter a location:</label>
+        <input id="location" type="text">
+        <button class="button" id="humidity-location">Get Current Humidity!</button>
+        <button class="button" id="temp-location">Get Current temp in Kelvin!</button>
+        <button class="button" id="fah-location">Get Current temp in Fahrenheit!</button>
+        <div class="showWeather"></div>
+        <div class="showKelvin"></div>
+        <div class="showFah"></div>
+      </div>
     </div>
   </body>
 </html>

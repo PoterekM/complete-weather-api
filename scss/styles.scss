@@ -1,0 +1,17 @@
+$malachite: #108070;
+
+.box {
+  background: $malachite;
+  border: 3px solid black;
+  padding: 40px 80px;
+  .button {
+    font-weight: bold;
+    text-align: center;
+    background: salmon;
+    color: lightpink;
+  }
+}
+
+body {
+  background-image: url(http://img.wennermedia.com/480-width/rs-228072-image-8.jpg);
+}
