@@ -1,30 +1,30 @@
 var apiKey = require('./../.env').apiKey;
 
-function Weather (city) {
-  this.city = city;
+function Weather () {
+
 }
 
-Weather.prototype.getHumidity = function() {
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&appid=' + apiKey) .then(function(response) {
-    $('.showWeather').text("The humidity in " + this.city + " is " + response.main.humidity + "%");
+Weather.prototype.getHumidity = function(city, displayHumidity) {
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey) .then(function(response) { displayHumidity(city, response.main.humidity);
   }).fail(function(error) {
       $('.showWeather').text(error.responseJSON.message);
   });
 };
 
-Weather.prototype.getTemperature = function() {
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&appid=' + apiKey) .then(function(response) {
-    $('.showTemp').text("The temperature in Kelvin in " + this.city + " is " + response.main.temp + ".");
+Weather.prototype.getTemperature = function(city, tempKelvin) {
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey) .then(function(response) {
+    tempKelvin(city, response.main.temp);
   }).fail(function(error) {
-    $('.showWeather').text(error.responseJSON.message);
+    $('.showKelvin').text(error.responseJSON.message);
   });
 };
 
-Weather.prototype.getFahrenheit = function() {
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + this.city + '&appid=' + apiKey) .then(function(response) {
-    $('.showTemp').text("The temperature in Fahrenheit in " + this.city + " is " + response.main.temp + ".");
+Weather.prototype.getFahrenheit = function(city, tempFahren) {
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey) .then(function(response) {
+    var tempFahrenConversion = parseInt((response.main.temp * (9/5) - 459.67));
+    tempFahren(city, tempFahrenConversion);
   }).fail(function(error) {
-    $('.showTemp').text(error.responseJSON.message);
+    $('.showFah').text(error.responseJSON.message);
   });
 };
 exports.weatherModule = Weather;
